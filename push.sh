@@ -10,6 +10,7 @@ files=$(ls -a)
 
 pushFunc() {
   git checkout $1
+  [[ $? = "1" ]] && exit
   git add .
   git commit -m $3
   git push origin $1
@@ -17,10 +18,19 @@ pushFunc() {
   git pull origin $2
   git merge origin $1
   git push origin $2
+
+  exit
 }
 
 if [[ $1 && $2 && $3 ]]
 then
+  # 如果两次输入的是同一个分支，直接提交当前分支
+  if [[ $1 -eq $2 ]]; then
+    git add .
+    git commit -m $3
+    git push origin $1
+    exit
+  fi
 
   pushFunc $1 $2 $3
 
@@ -45,13 +55,13 @@ else
 
   if [[ $input2 && $input2 = $master ]]
   then
-    echo 
+    echo
     echo "合并失败, 合并master请使用mr"
     exit
   fi
 
   if [[ $input1 && $input2 && $input ]]
-  then 
+  then
 
     pushFunc $input1 $input2 $input
 
