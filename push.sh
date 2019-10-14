@@ -24,14 +24,18 @@ pushFunc() {
   exit
 }
 
+pushSelfFunc() {
+  git add .
+  git commit -m "$3"
+  git push origin $1
+  exit
+}
+
 if [[ $1 && $2 && $3 ]]
 then
   # 如果两次输入的是同一个分支，直接提交当前分支
   if [[ $1 -eq $2 ]]; then
-    git add .
-    git commit -m $3
-    git push origin $1
-    exit
+    pushSelfFunc $1 $2 $3
   fi
 
   pushFunc $1 $2 $3
@@ -48,13 +52,17 @@ else
   echo
   read -p "请选择类型并输入commit信息(以空格分割): " commitType text
 
-
   case $commitType in
     1) input="feat: ${text}" ;;
     2) input="fix: ${text}" ;;
     3) input="update: ${text}" ;;
     *) echo "输入有误" && exit ;;
   esac
+
+  # 如果两次输入的是同一个分支，直接提交当前分支
+  if [[ $input1 -eq $input2 ]]; then
+    pushSelfFunc $input1 $input2 $input
+  fi
 
   # 禁止合并master
   if [[ $input2 && $input2 = $master ]]
