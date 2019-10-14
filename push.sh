@@ -2,6 +2,8 @@
 
 master="master"
 
+# 判断当前文件所在位置有没有.git文件
+
 files=$(ls -a)
 
 [[ $files =~ ".git" ]]
@@ -46,6 +48,7 @@ else
   echo
   read -p "请选择类型并输入commit信息(以空格分割): " commitType text
 
+
   case $commitType in
     1) input="feat: ${text}" ;;
     2) input="fix: ${text}" ;;
@@ -53,6 +56,7 @@ else
     *) echo "输入有误" && exit ;;
   esac
 
+  # 禁止合并master
   if [[ $input2 && $input2 = $master ]]
   then
     echo
