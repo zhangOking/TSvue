@@ -4,23 +4,23 @@ module.exports = {
 
     types: [{
             value: 'feat',
-            name: 'feat:     一个新需求'
+            name: 'feat: 一个新需求'
         },
         {
             value: 'fix',
-            name: 'fix:      修复的bug'
+            name: 'fix: 修复的bug'
         },
         {
             value: 'update',
-            name: 'update:      功能升级'
+            name: 'update: 功能升级'
         },
         {
             value: 'style',
-            name: 'style:    修改样式            (white-space, formatting, missing semi-colons, etc)'
+            name: 'style: 修改样式'
         },
         {
             value: 'test',
-            name: 'test:    测试文件'
+            name: 'test: 测试文件'
         },
     ],
 
@@ -52,7 +52,7 @@ module.exports = {
     // override the messages, defaults are as follows
     messages: {
         type: '选择一种你的提交类型:',
-        scope: '选择一个scope (可选):',
+        scope: '\n选择一个scope (可选):',
         subject: '短说明:\n',
         body: '长说明，使用"|"换行(可选)：\n',
         breaking: '非兼容性说明 (可选):\n',
