@@ -1,11 +1,11 @@
 {
   "name": "tsvue",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "commit": "git-cz",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
+    "release": "standard-version"
   },
   "config": {
     "commitizen": {
@@ -24,8 +24,10 @@
   "homepage": "https://github.com/zhangOking/TSvue#readme",
   "devDependencies": {
     "commitizen": "^4.0.3",
-    "conventional-changelog": "^3.1.18",
     "cz-conventional-changelog": "^3.0.2",
     "cz-customizable": "^6.2.0"
+  },
+  "dependencies": {
+    "standard-version": "^7.0.1"
   }
 }
