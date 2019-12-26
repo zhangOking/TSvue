@@ -24,19 +24,19 @@ module.exports = {
         },
     ],
 
-    // scopes: [{
-    //         name: 'accounts'
-    //     },
-    //     {
-    //         name: 'admin'
-    //     },
-    //     {
-    //         name: 'exampleScope'
-    //     },
-    //     {
-    //         name: 'changeMe'
-    //     }
-    // ],
+    scopes: [{
+            name: '模块1'
+        },
+        {
+            name: '模块2'
+        },
+        {
+            name: '模块3'
+        },
+        {
+            name: '模块4'
+        }
+    ],
 
     // it needs to match the value for field type. Eg.: 'fix'
     /*
@@ -52,7 +52,7 @@ module.exports = {
     // override the messages, defaults are as follows
     messages: {
         type: '选择一种你的提交类型:',
-        scope: '\n选择一个scope (可选):',
+        scope: '\n选择一个功能模块 (可选):',
         subject: '短说明:\n',
         body: '长说明，使用"|"换行(可选)：\n',
         breaking: '非兼容性说明 (可选):\n',
