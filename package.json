@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "commit": "git-cz",
+    "submit": "chmod +x /node_modules/gitcommit-m/submit.sh && /node_modules/gitcommit-m/submit.sh",
     "release": "standard-version"
   },
   "config": {
@@ -28,6 +29,7 @@
     "cz-customizable": "^6.2.0"
   },
   "dependencies": {
+    "gitcommit-m": "^1.0.0",
     "standard-version": "^7.0.1"
   }
 }
